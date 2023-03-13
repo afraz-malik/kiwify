@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/kiwify/static/css/main.6250eb1d.css",
+    "main.js": "/kiwify/static/js/main.f6d11030.js",
+    "index.html": "/kiwify/index.html",
+    "main.6250eb1d.css.map": "/kiwify/static/css/main.6250eb1d.css.map",
+    "main.f6d11030.js.map": "/kiwify/static/js/main.f6d11030.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6250eb1d.css",
+    "static/js/main.f6d11030.js"
+  ]
+}
