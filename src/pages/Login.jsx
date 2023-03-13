@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { loginSchema, yupErrorHandler } from '../services/yup.js'
 
-const Login = () => {
+const Login = ({ onPageClick }) => {
   const [state, setState] = useState({
     email: '',
     confirmEmail: '',
@@ -35,6 +35,7 @@ const Login = () => {
       state={state}
       handleChange={handleChange}
       errors={errors}
+      onPageClick={onPageClick}
       handleOnBlur={handleOnBlur}
       handleSubmit={handleSubmit}
     />
@@ -44,6 +45,7 @@ const LoginUI = ({
   state,
   errors,
   handleChange,
+  onPageClick,
   handleOnBlur,
   handleSubmit,
 }) => {
@@ -62,12 +64,12 @@ const LoginUI = ({
             </h2>
             <p className="mt-2 text-center text-base leading-5 text-gray-600">
               Or
-              <a
-                href="/signup"
-                className="ml-1 font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:underline transition ease-in-out duration-150"
+              <span
+                onClick={() => onPageClick()}
+                className=" cursor-pointer ml-1 font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:underline transition ease-in-out duration-150"
               >
                 register
-              </a>
+              </span>
             </p>
           </div>
           <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
@@ -121,18 +123,16 @@ const LoginUI = ({
               </div>
               <div className="mt-2 flex items-center justify-end">
                 <div className="text-sm leading-5">
-                  <a
-                    href="/ResetPassword"
-                    className="font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:underline transition ease-in-out duration-150"
-                  >
+                  <span className="font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:underline transition ease-in-out duration-150">
                     Forgot password?
-                  </a>
+                  </span>
                 </div>
               </div>
               <div className="mt-6">
                 <span className="block w-full rounded-md shadow-sm">
                   <button
                     type="button"
+                    onClick={() => handleSubmit()}
                     className="w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition duration-150 ease-in-out"
                   >
                     To Enter

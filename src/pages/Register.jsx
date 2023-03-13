@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { registerSchema, yupErrorHandler } from '../services/yup.js'
 
-const Register = () => {
+const Register = ({ onPageClick }) => {
   const [state, setState] = useState({
     email: '',
     confirmEmail: '',
@@ -32,6 +32,7 @@ const Register = () => {
   }
   return (
     <RegisterUI
+      onPageClick={onPageClick}
       state={state}
       handleChange={handleChange}
       errors={errors}
@@ -46,6 +47,7 @@ const RegisterUI = ({
   handleChange,
   handleOnBlur,
   handleSubmit,
+  onPageClick,
 }) => {
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
@@ -61,12 +63,12 @@ const RegisterUI = ({
           </h2>
           <p className="mt-2 text-center text-base leading-5 text-gray-600">
             Or
-            <a
-              href="/login"
-              className="ml-1 font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:underline transition ease-in-out duration-150"
+            <span
+              onClick={() => onPageClick()}
+              className="cursor-pointer ml-1 font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:underline transition ease-in-out duration-150"
             >
               log into your existing account
-            </a>
+            </span>
           </p>
         </div>
         <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
