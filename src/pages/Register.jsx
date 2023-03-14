@@ -28,7 +28,10 @@ const Register = ({ onPageClick }) => {
     }
   }
   const handleSubmit = (e) => {
-    setErrors(validateForm())
+    const yupErrors = validateForm()
+    if (yupErrors) {
+      setErrors(yupErrors)
+    }
   }
   return (
     <RegisterUI

@@ -28,7 +28,10 @@ const Login = ({ onPageClick }) => {
     }
   }
   const handleSubmit = (e) => {
-    setErrors(validateForm())
+    const yupErrors = validateForm()
+    if (yupErrors) {
+      setErrors(yupErrors)
+    }
   }
   return (
     <LoginUI
